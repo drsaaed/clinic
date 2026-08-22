@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TLBBGXJHCN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TLBBGXJHCN');
+</script>
+
 <title>Family Clinic — أ.د. سعيد صلاح | طب الأسرة والأمراض المزمنة</title>
 <meta name="description" content="احجز موعدك مع أ.د. سعيد صلاح، أستاذ طب الأسرة بجامعة القاهرة واستشاري رعاية مرضى السكري — فروع المعادي والدقي والهضبة">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,5 +125,27 @@
 <footer>
   التطبيق أداة مساعدة ولا يغني عن استشارة الطبيب • <a href="privacy.html">سياسة الخصوصية</a><br>© 2026 Family Clinic — أ.د. سعيد صلاح
 </footer>
+
+<!-- تتبّع نقرات الحجز والاتصال في Google Analytics -->
+<script>
+(function(){
+  var sel = 'a.btn, .addr a[href^="tel:"], .addr a[href*="wa.me"], .addr a[href*="google.com/maps"]';
+  document.querySelectorAll(sel).forEach(function(a){
+    a.addEventListener('click', function(){
+      var href = a.getAttribute('href') || '';
+      var method =
+        href.indexOf('wa.me') > -1        ? 'whatsapp' :
+        href.indexOf('tel:') === 0        ? 'phone'    :
+        href.indexOf('play.google') > -1  ? 'app_install' :
+        href.indexOf('google.com/maps')>-1? 'directions'  : 'other';
+      gtag('event', 'clinic_contact', {
+        method: method,
+        link_label: (a.textContent || '').trim().replace(/\s+/g, ' '),
+        link_url: href
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
